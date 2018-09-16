@@ -1,0 +1,2 @@
+class InformationElement < ApplicationRecord
+end

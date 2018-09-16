@@ -1,0 +1,340 @@
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "annotation_elements"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (45.5ms)[0m  [1m[35mCREATE TABLE "annotation_elements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "link" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "competition_team_members"[0m
+  ↳ db/schema.rb:23
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "competition_team_members" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "patronymic" varchar, "birthdate" date, "university" varchar, "speciality" varchar, "year_of_study" decimal, "address" varchar, "group" varchar, "email" varchar, "phone" varchar, "competition_team_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:23
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE  INDEX "index_competition_team_members_on_competition_team_id" ON "competition_team_members" ("competition_team_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "competition_teams"[0m
+  ↳ db/schema.rb:41
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "competition_teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "how_learned_about" varchar, "notes" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:41
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "contest_nominations"[0m
+  ↳ db/schema.rb:49
+  [1m[35m (21.7ms)[0m  [1m[35mCREATE TABLE "contest_nominations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "caption" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "availible_for_registration" boolean)[0m
+  ↳ db/schema.rb:49
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "contest_works"[0m
+  ↳ db/schema.rb:56
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "contest_works" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "patronymic" varchar, "university" varchar, "speciality" varchar, "year_of_study" decimal, "group" varchar, "email" varchar, "phone" varchar, "contest_nomination_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "approved" boolean)[0m
+  ↳ db/schema.rb:56
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE  INDEX "index_contest_works_on_contest_nomination_id" ON "contest_works" ("contest_nomination_id")[0m
+  ↳ db/schema.rb:56
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "information_elements"[0m
+  ↳ db/schema.rb:73
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "information_elements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "link" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "mini_course_listeners"[0m
+  ↳ db/schema.rb:81
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "mini_course_listeners" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "patronymic" varchar, "university" varchar, "speciality" varchar, "year_of_study" decimal, "group" varchar, "email" varchar, "phone" varchar, "mini_course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:81
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX "index_mini_course_listeners_on_mini_course_id" ON "mini_course_listeners" ("mini_course_id")[0m
+  ↳ db/schema.rb:81
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "mini_courses"[0m
+  ↳ db/schema.rb:97
+  [1m[35m (17.8ms)[0m  [1m[35mCREATE TABLE "mini_courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "availible_for_registration" boolean)[0m
+  ↳ db/schema.rb:97
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "nav_elements"[0m
+  ↳ db/schema.rb:105
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "nav_elements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "caption" varchar, "link" varchar, "new_tab" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:105
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages"[0m
+  ↳ db/schema.rb:113
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "pages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "slug" varchar, "content" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:113
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "partners"[0m
+  ↳ db/schema.rb:121
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "partners" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "link" varchar, "logo" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:121
+  [1m[35m (23.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (17.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180626104926)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-16 14:19:45.042816"], ["updated_at", "2018-09-16 14:19:45.042816"]]
+  ↳ db/schema.rb:13
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "annotation_elements"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "annotation_elements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "link" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "competition_team_members"[0m
+  ↳ db/schema.rb:23
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "competition_team_members" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "patronymic" varchar, "birthdate" date, "university" varchar, "speciality" varchar, "year_of_study" decimal, "address" varchar, "group" varchar, "email" varchar, "phone" varchar, "competition_team_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:23
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE  INDEX "index_competition_team_members_on_competition_team_id" ON "competition_team_members" ("competition_team_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "competition_teams"[0m
+  ↳ db/schema.rb:41
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "competition_teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "how_learned_about" varchar, "notes" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "contest_nominations"[0m
+  ↳ db/schema.rb:49
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "contest_nominations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "caption" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "availible_for_registration" boolean)[0m
+  ↳ db/schema.rb:49
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "contest_works"[0m
+  ↳ db/schema.rb:56
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "contest_works" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "patronymic" varchar, "university" varchar, "speciality" varchar, "year_of_study" decimal, "group" varchar, "email" varchar, "phone" varchar, "contest_nomination_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "approved" boolean)[0m
+  ↳ db/schema.rb:56
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE  INDEX "index_contest_works_on_contest_nomination_id" ON "contest_works" ("contest_nomination_id")[0m
+  ↳ db/schema.rb:56
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "information_elements"[0m
+  ↳ db/schema.rb:73
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "information_elements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "link" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "mini_course_listeners"[0m
+  ↳ db/schema.rb:81
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "mini_course_listeners" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "patronymic" varchar, "university" varchar, "speciality" varchar, "year_of_study" decimal, "group" varchar, "email" varchar, "phone" varchar, "mini_course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:81
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE  INDEX "index_mini_course_listeners_on_mini_course_id" ON "mini_course_listeners" ("mini_course_id")[0m
+  ↳ db/schema.rb:81
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "mini_courses"[0m
+  ↳ db/schema.rb:97
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "mini_courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "availible_for_registration" boolean)[0m
+  ↳ db/schema.rb:97
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "nav_elements"[0m
+  ↳ db/schema.rb:105
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "nav_elements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "caption" varchar, "link" varchar, "new_tab" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:105
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages"[0m
+  ↳ db/schema.rb:113
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "pages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "slug" varchar, "content" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:113
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "partners"[0m
+  ↳ db/schema.rb:121
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "partners" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "link" varchar, "logo" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:121
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (5.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180626104926)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-16 14:19:45.221369"], ["updated_at", "2018-09-16 14:19:45.221369"]]
+  ↳ db/schema.rb:13
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-09-16 14:19:45.231952"], ["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Started GET "/" for 127.0.0.1 at 2018-09-16 17:28:37 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/nick/.rvm/gems/ruby-2.4.4/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/nick/.rvm/gems/ruby-2.4.4/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-09-16 17:28:37 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/General/info" for 127.0.0.1 at 2018-09-16 17:28:46 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/General/info"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/general/info" for 127.0.0.1 at 2018-09-16 17:28:51 +0300
+Processing by GeneralController#info as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/general/info" for 127.0.0.1 at 2018-09-16 17:28:58 +0300
+Processing by GeneralController#info as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/general/info" for 127.0.0.1 at 2018-09-16 17:29:06 +0300
+Processing by GeneralController#info as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/General/info" for 127.0.0.1 at 2018-09-16 17:30:52 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/General/info"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/General/info" for 127.0.0.1 at 2018-09-16 17:30:54 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/General/info"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/General/info" for 127.0.0.1 at 2018-09-16 17:30:54 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/General/info"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-09-16 17:32:00 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/nick/.rvm/gems/ruby-2.4.4/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/nick/.rvm/gems/ruby-2.4.4/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/general/info" for 127.0.0.1 at 2018-09-16 17:32:06 +0300
+Processing by GeneralController#info as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/general/info" for 127.0.0.1 at 2018-09-16 17:32:13 +0300
+Processing by GeneralController#info as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-16 17:32:20 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/nick/.rvm/gems/ruby-2.4.4/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/nick/.rvm/gems/ruby-2.4.4/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.1ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-16 17:32:20 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/nick/.rvm/gems/ruby-2.4.4/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/nick/.rvm/gems/ruby-2.4.4/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-16 17:37:00 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/nick/.rvm/gems/ruby-2.4.4/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/nick/.rvm/gems/ruby-2.4.4/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/general/info" for 127.0.0.1 at 2018-09-16 17:37:05 +0300
+Processing by GeneralController#info as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+

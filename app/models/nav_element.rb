@@ -1,0 +1,2 @@
+class NavElement < ApplicationRecord
+end
