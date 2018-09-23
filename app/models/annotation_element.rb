@@ -1,0 +1,2 @@
+class AnnotationElement < ApplicationRecord
+end
