@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   get 'general/info', to:'general#info'
   get 'general/info', to: 'general#info'
 
-  resource :partners
   resources :contest_nomination do 
   	resources:contest_work
   end
-  resource :annotations
   resources :partners
   resources :annotations
 end

@@ -7,7 +7,7 @@ class ContestNominationController < ApplicationController
   end
 
   def create
-      @contest_nomination= AnnotationElement.create! contest_nom_params
+      @contest_nomination= ContestNomination.create! contest_nom_params
       json_response @contest_nomination, :created
     end
 
@@ -16,7 +16,7 @@ class ContestNominationController < ApplicationController
   end
 
   def update
-    @contest_nomination.update partner_params
+    @contest_nomination.update contest_nom_params
     head :no_content    
   end
 
@@ -28,10 +28,10 @@ class ContestNominationController < ApplicationController
   private
 
   def  contest_nom_params
-    params.permit :name, :link, :logo
+    params.permit :name
   end
 
   def set_contest_nomination
-    @contest_nomination = Partner.find params[:id]
+    @contest_nomination = ContestNomination.find params[:id]
   end
 end
