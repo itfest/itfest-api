@@ -28,7 +28,7 @@ class PartnersController < ApplicationController
 	private
 
 	def partner_params
-		params.permit :title, :created_by
+		params.permit :name, :link, :logo
 	end
 
 	def set_partner
