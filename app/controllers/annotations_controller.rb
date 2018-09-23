@@ -1,9 +1,9 @@
 class AnnotationsController < ApplicationController
-	before_action :set_annotation_element, only: [:show, :edit, :update, :destroy]
+	before_action :set_annotation_element, only: [:show, :update, :destroy]
 
 	def index
 		@annotations = AnnotationElement.all
-		json_response(@annotations)
+		json_response (@annotations)
 	end
 
 	def create
@@ -32,6 +32,6 @@ class AnnotationsController < ApplicationController
 	end
 
 	def set_annotation_element
-		@annotation = AnnotationElement.find params[:id]
+		@annotation = AnnotationElement.find(params[:id])
 	end
 end
