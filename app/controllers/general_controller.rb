@@ -1,5 +1,6 @@
 class GeneralController < ApplicationController
   def info
-  	json_response({status:'True'})
+  	info = GeneralInfo.first
+  	json_response info
   end
 end

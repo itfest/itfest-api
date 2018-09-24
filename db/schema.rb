@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_23_112020) do
+ActiveRecord::Schema.define(version: 2018_09_23_180737) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -68,6 +68,14 @@ ActiveRecord::Schema.define(version: 2018_09_23_112020) do
     t.datetime "updated_at", null: false
     t.boolean "approved"
     t.index ["contest_nomination_id"], name: "index_contest_works_on_contest_nomination_id"
+  end
+
+  create_table "general_infos", force: :cascade do |t|
+    t.string "dates"
+    t.boolean "is_registration_active"
+    t.string "annotation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "information_elements", force: :cascade do |t|

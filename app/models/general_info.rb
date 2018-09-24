@@ -1,0 +1,2 @@
+class GeneralInfo < ApplicationRecord
+end
