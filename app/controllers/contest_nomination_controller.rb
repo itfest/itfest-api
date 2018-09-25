@@ -1,9 +1,9 @@
 class ContestNominationController < ApplicationController
-	before_action :set_contest_nomination, only: [:show, :edit, :update, :destroy]
+	before_action :set_contest_nomination, only: [:show, :update, :destroy]
 
 	def index
-		@contest_nomination = ContestNomination.all
-		json_response @contest_nomination
+		@contest_nominations = ContestNomination.all
+		json_response @contest_nominations
 	end
 
 	def create
@@ -28,7 +28,7 @@ class ContestNominationController < ApplicationController
 	private
 
 	def contest_nom_params
-		params.permit :name
+		params.permit :caption
 	end
 
 	def set_contest_nomination

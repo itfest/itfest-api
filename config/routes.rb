@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'general/info', to: 'general#info'
 
   resources :contest_nomination do 
-  	resources:contest_work
+  	resources :contest_work
   end
 
   resources :partners

@@ -2,8 +2,8 @@ class ContestWorkController < ApplicationController
 	before_action :set_contest_work, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@contest_work = ContestWork.all
-		json_response @contest_work
+		@contest_works = ContestWork.all
+		json_response @contest_works
 	end
 
 	def create
