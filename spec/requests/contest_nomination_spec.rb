@@ -86,4 +86,30 @@ RSpec.describe 'contest_nomination', type: :request do
 		end
 	end
 
+	describe 'PUT /contest_nomination/:id' do 
+
+		let(:valid_attributes) {{caption: "Yolo"}.to_json}
+
+		context 'json exists' do
+			before {put "/contest_nomination/#{contest_nomination_id}", params: valid_attributes, headers: headers}
+
+			it 'updates json' do
+				expect(response.body).to be_empty
+			end
+
+			it 'returns 204' do 
+				expect(response).to have_http_status(204)
+			end
+
+		end
+
+	end
+
+	describe 'DELETE /contest_nomination/:id' do
+		before {delete "/contest_nomination/#{contest_nomination_id}"}
+
+		it 'returns 204'do
+			expect(response).to have_http_status(204)
+		end
+	end
 end
