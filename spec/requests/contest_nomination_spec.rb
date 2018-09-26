@@ -2,16 +2,16 @@ require 'rails_helper'
 
 RSpec.describe 'contest_nomination', type: :request do
 
-	let!(:contest_nominations) { create_list(:contest_nomination, 10) }
+	let!(:contest_nominations) { create_list(:contest_nomination, 5) }
 	let(:contest_nomination_id) { contest_nominations.first.id }
 
 	describe 'GET /contest_nomination' do
 
-		before { get '/contest_nomination' }
+		before { get "/contest_nomination" }
 
 		it 'returns contest_nomination' do
 			expect(json).not_to be_empty
-			expect(json.size==2)
+			expect(json['data'].size).to eq(5)
 		end
 
 		it 'returns 200' do
@@ -28,7 +28,7 @@ RSpec.describe 'contest_nomination', type: :request do
 
 			it 'returns contest_nomination' do 
 				expect(json).not_to be_empty
-				expect(json['id']==contest_nomination_id)
+				expect(json['data']['id']).to eq(contest_nomination_id)
 			end
 
 			it 'returns 200' do 
@@ -55,12 +55,12 @@ RSpec.describe 'contest_nomination', type: :request do
 
 		context 'valid post request' do 
 
-			let(:valid_attributes) {{caption:'YoloCaption'}.to_json}
+			let(:valid_attributes) {{caption:'YoloCaption'}}
 
-			before {post '/contest_nomination',params: valid_attributes, headers: headers}
+			before {post "/contest_nomination",params: valid_attributes, headers: headers}
 
 			it 'creates contest_nomination' do
-				expect(json['caption']=='YoloCaption')
+				expect(json['data']['caption']).to eq('YoloCaption')
 			end
 
 			it 'returns 201' do
@@ -71,12 +71,12 @@ RSpec.describe 'contest_nomination', type: :request do
 		
 		context 'invalid post request' do 
 
-			let(:invalid_attributes) {{caption: nil}.to_json}
+			let(:invalid_attributes) {{caption: nil}}
 
-			before {post '/contest_nomination',params: invalid_attributes, headers: headers}
+			before {post "/contest_nomination",params: invalid_attributes, headers: headers}
 
 			it 'returns validation failure' do
-				expect(json['caption']==nil)
+				expect(json['data']['caption']).to eq(nil)
 			end
 
 			it 'returns 201' do
@@ -88,7 +88,7 @@ RSpec.describe 'contest_nomination', type: :request do
 
 	describe 'PUT /contest_nomination/:id' do 
 
-		let(:valid_attributes) {{caption: "Yolo"}.to_json}
+		let(:valid_attributes) {{caption: "Yolo"}}
 
 		context 'json exists' do
 			before {put "/contest_nomination/#{contest_nomination_id}", params: valid_attributes, headers: headers}

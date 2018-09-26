@@ -1,14 +1,14 @@
 class ContestWorkController < ApplicationController
-	before_action :set_contest_work, only: [:show, :edit, :update, :destroy]
+	before_action :set_contest_nomination
+	before_action :set_contest_work, only: [:show, :update, :destroy]
 
 	def index
-		@contest_works = ContestWork.all
-		json_response @contest_works
+		json_response @contest_nomination.contest_works
 	end
 
 	def create
-		@contest_work= ContestWork.create! contest_work_params
-		json_response @contest_work, :created
+		@contest_nomination.contest_works.create!(contest_work_params)
+		json_response @contest_nomination, :created
 	end
 
 	def show
@@ -28,10 +28,14 @@ class ContestWorkController < ApplicationController
 	private
 
 	def contest_work_params
-		params.permit :first_namme, :last_name, :patronymic, :university, :speciality, :year_of_study, :group, :email, :phone
+		params.permit :first_name, :last_name, :patronymic, :university, :speciality, :year_of_study, :group, :email, :phone
+	end
+
+	def set_contest_nomination
+		@contest_nomination=ContestNomination.find params[:contest_nomination_id]
 	end
 
 	def set_contest_work
-		@contest_work= ContestWork.find params[:id]
+		@contest_work= @contest_nomination.contest_works.find_by!(id: params[:id]) if @contest_nomination
 	end
 end
