@@ -1,4 +1,4 @@
-class ContestWorkController < ApplicationController
+class ContestWorksController < ApplicationController
 	before_action :set_contest_nomination
 	before_action :set_contest_work, only: [:show, :update, :destroy]
 
@@ -32,7 +32,7 @@ class ContestWorkController < ApplicationController
 	end
 
 	def set_contest_nomination
-		@contest_nomination=ContestNomination.find params[:contest_nomination_id]
+		@contest_nomination = ContestNomination.find params[:contest_nomination_id]
 	end
 
 	def set_contest_work
