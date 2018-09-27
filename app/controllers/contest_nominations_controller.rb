@@ -28,7 +28,7 @@ class ContestNominationsController < ApplicationController
 	private
 
 	def contest_nom_params
-		params.permit :caption
+		params.permit :caption, :availible_for_registration
 	end
 
 	def set_contest_nomination
