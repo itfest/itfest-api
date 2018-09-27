@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'contest_work' do
+RSpec.describe 'contest_works' do
 	
 	let!(:contest_nomination) { create(:contest_nomination) }
 	let!(:contest_works) { create_list(:contest_work,10,contest_nomination_id: contest_nomination.id)}
@@ -9,9 +9,9 @@ RSpec.describe 'contest_work' do
 	let(:id) { contest_works.first.id }
 
 
-	describe 'GET /contest_nomination/:contest_nomination_id/contest_work' do
+	describe 'GET /contest_nominations/:contest_nomination_id/contest_works' do
 
-		before { get "/contest_nomination/#{contest_nomination_id}/contest_work" }
+		before { get "/contest_nominations/#{contest_nomination_id}/contest_works" }
 
 		context 'contest_nom exists' do
 
@@ -38,9 +38,9 @@ RSpec.describe 'contest_work' do
 		end
 	end
 
-	describe 'GET /contest_nomination/:contest_nomination_id/contest_work/:id' do
+	describe 'GET /contest_nominations/:contest_nomination_id/contest_works/:id' do
 
-		before { get "/contest_nomination/#{contest_nomination_id}/contest_work/#{id}"}
+		before { get "/contest_nominations/#{contest_nomination_id}/contest_works/#{id}"}
 
 		context 'contest_work exists' do
 
@@ -67,11 +67,11 @@ RSpec.describe 'contest_work' do
 		end
 	end
 
-	describe 'POST /contest_nomination/:contest_nomination_id/contest_work' do
+	describe 'POST /contest_nominations/:contest_nomination_id/contest_works' do
 
 		context 'valid post request' do 
 
-			before {post "/contest_nomination/#{contest_nomination_id}/contest_work", headers: headers}
+			before {post "/contest_nominations/#{contest_nomination_id}/contest_works", headers: headers}
 
 			it 'returns 201' do
 				expect(response).to have_http_status(201)
@@ -82,7 +82,7 @@ RSpec.describe 'contest_work' do
 		context 'invalid post request' do 
 
 			let(:invalid_attributes) {{first_name: nil}}
-			before {post "/contest_nomination/#{contest_nomination_id}/contest_work",params: invalid_attributes, headers: headers}
+			before {post "/contest_nominations/#{contest_nomination_id}/contest_works",params: invalid_attributes, headers: headers}
 
 			it 'returns validation failure' do
 				expect(json['data']['first_name']).to eq(nil)
@@ -95,10 +95,10 @@ RSpec.describe 'contest_work' do
 		end
 	end
 
-	describe 'PUT /contest_nomination/:contest_nomination_id/contest_work/:id' do
+	describe 'PUT /contest_nominations/:contest_nomination_id/contest_works/:id' do
 		
 		let(:valid_attributes) {{first_name: 'Alex'}}
-		before {put "/contest_nomination/#{contest_nomination_id}/contest_work/#{id}",params: valid_attributes}
+		before {put "/contest_nominations/#{contest_nomination_id}/contest_works/#{id}",params: valid_attributes}
 
 		context 'contest_work exists' do 
 
@@ -129,9 +129,9 @@ RSpec.describe 'contest_work' do
 
 	end
 
-	describe 'DELETE /contest_nomination/:id' do 
+	describe 'DELETE /contest_nominations/:id' do 
 
-		before {delete "/contest_nomination/#{contest_nomination_id}/contest_work/#{id}"}
+		before {delete "/contest_nominations/#{contest_nomination_id}/contest_works/#{id}"}
 
 		it 'returns 204' do
 			expect(response).to have_http_status(204)
