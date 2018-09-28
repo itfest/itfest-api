@@ -28,7 +28,15 @@ class ContestWorksController < ApplicationController
 	private
 
 	def contest_work_params
-		params.permit :first_name, :last_name, :patronymic, :university, :speciality, :year_of_study, :group, :email, :phone
+		params.permit :first_name, 
+		              :last_name, 
+		              :patronymic, 
+		              :university, 
+		              :speciality, 
+		              :year_of_study, 
+		              :group, 
+		              :email, 
+		              :phone
 	end
 
 	def set_contest_nomination
