@@ -31,14 +31,15 @@ class CompetitionTeamMembersController < ApplicationController
     params.permit :first_name, 
                   :last_name, 
                   :patronymic, 
-                  :birthday,
+                  :birthdate,
                   :university, 
                   :speciality, 
                   :address,
                   :year_of_study, 
                   :group, 
                   :email, 
-                  :phone
+                  :phone,
+                  :competition_team
   end
 
   def set_comp_team

@@ -3,8 +3,8 @@ FactoryBot.define do
 		first_name {Faker::Name.first_name}
 		last_name {Faker::Name.last_name}
 		patronymic {Faker::Name.middle_name}
-		birthday {Faker::Date.backward(13)}
-		university {Faker::Lorem.word}
+		birthdate {Faker::Date.backward(13)}
+		university {Faker::Name.middle_name}
 		speciality {Faker::Lorem.word}
 		address {Faker::Lorem.word}
 		year_of_study {Faker::Number.between(1,6)}
