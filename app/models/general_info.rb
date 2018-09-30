@@ -1,5 +1,5 @@
 class GeneralInfo < ApplicationRecord
-	validates :dates
+	validate :dates
 	validates :is_registration_active, inclusion: { in: [true, false] }
-	validates :annotation
+	validate :annotation
 end
