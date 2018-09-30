@@ -53,14 +53,16 @@ RSpec.describe 'contest_nominations', type: :request do
 
 	describe 'POST /contest_nominations' do
 
+		let(:valid_attributes) {{caption: 'TestCaption'}}
+		let(:invalid_attributes) {{caption: nil}}
+
+
 		context 'valid post request' do 
 
-			let(:valid_attributes) {{caption:'YoloCaption'}}
-
-			before {post "/contest_nominations",params: valid_attributes, headers: headers}
+			before {post "/contest_nominations",params: valid_attributes}
 
 			it 'creates contest_nominations' do
-				expect(json['data']['caption']).to eq('YoloCaption')
+				expect(json['data']['caption']).to eq('TestCaption')
 			end
 
 			it 'returns 201' do
@@ -71,16 +73,14 @@ RSpec.describe 'contest_nominations', type: :request do
 		
 		context 'invalid post request' do 
 
-			let(:invalid_attributes) {{caption: nil}}
-
-			before {post "/contest_nominations",params: invalid_attributes, headers: headers}
+			before {post "/contest_nominations",params: invalid_attributes}
 
 			it 'returns validation failure' do
-				expect(json['data']['caption']).to eq(nil)
+				expect(response.body).to match(/can't be blank/)
 			end
 
-			it 'returns 201' do
-				expect(response).to have_http_status(201)
+			it 'returns 422' do
+				expect(response).to have_http_status(422)
 			end
 
 		end
@@ -88,10 +88,10 @@ RSpec.describe 'contest_nominations', type: :request do
 
 	describe 'PUT /contest_nominations/:id' do 
 
-		let(:valid_attributes) {{caption: "Yolo"}}
+		let(:valid_attributes) {{caption: 'TestCaptionUpdate'}}
 
 		context 'json exists' do
-			before {put "/contest_nominations/#{contest_nomination_id}", params: valid_attributes, headers: headers}
+			before {put "/contest_nominations/#{contest_nomination_id}", params: valid_attributes}
 
 			it 'updates json' do
 				expect(response.body).to be_empty

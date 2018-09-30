@@ -57,7 +57,7 @@ RSpec.describe 'competition_teams', type: :request do
 
       let(:valid_attributes) {{name:'Alex'}}
 
-      before {post "/competition_teams",params: valid_attributes, headers: headers}
+      before {post "/competition_teams",params: valid_attributes}
 
       it 'creates competition_teams' do
         expect(json['data']['name']).to eq('Alex')
@@ -73,7 +73,7 @@ RSpec.describe 'competition_teams', type: :request do
 
       let(:invalid_attributes) {{name: 'BadName'}}
 
-      before {post "/competition_teams",params: invalid_attributes, headers: headers}
+      before {post "/competition_teams",params: invalid_attributes}
 
       it 'returns validation failure' do
         expect(json['data']['name']).to eq('BadName')
@@ -91,7 +91,7 @@ RSpec.describe 'competition_teams', type: :request do
     let(:valid_attributes) {{name: "Alex"}}
 
     context 'json exists' do
-      before {put "/competition_teams/#{competition_team_id}", params: valid_attributes, headers: headers}
+      before {put "/competition_teams/#{competition_team_id}", params: valid_attributes}
 
       it 'updates json' do
         expect(response.body).to be_empty

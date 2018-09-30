@@ -71,7 +71,7 @@ RSpec.describe 'contest_works' do
 
 		context 'valid post request' do 
 
-			before {post "/contest_nominations/#{contest_nomination_id}/contest_works", headers: headers}
+			before {post "/contest_nominations/#{contest_nomination_id}/contest_works"}
 
 			it 'returns 201' do
 				expect(response).to have_http_status(201)
@@ -82,7 +82,7 @@ RSpec.describe 'contest_works' do
 		context 'invalid post request' do 
 
 			let(:invalid_attributes) {{first_name: nil}}
-			before {post "/contest_nominations/#{contest_nomination_id}/contest_works",params: invalid_attributes, headers: headers}
+			before {post "/contest_nominations/#{contest_nomination_id}/contest_works",params: invalid_attributes}
 
 			it 'returns validation failure' do
 				expect(json['data']['first_name']).to eq(nil)
@@ -118,7 +118,7 @@ RSpec.describe 'contest_works' do
 			let(:id) {0}
 
 			it 'returns NOT FOUND' do
-				expect(response.body).to match(/Couldn't find/)
+				expect(response.body).to match(/Couldn't find ContestWork/)
 			end
 
 			it 'returns 404' do
