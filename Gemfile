@@ -30,6 +30,8 @@ gem 'rack-cors', require: 'rack/cors'
 # image upload
 gem 'carrierwave'
 
+gem 'active_model_serializers'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'faker'

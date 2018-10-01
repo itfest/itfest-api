@@ -12,4 +12,5 @@ class CompetitionTeamMember < ApplicationRecord
 	validates :email, presence: true, uniqueness: true, email: true
 	validates :phone, presence: true
 	validates :competition_team, presence: true
+	validates_associated :competition_team
 end
