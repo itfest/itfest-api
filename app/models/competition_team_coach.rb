@@ -1,0 +1,2 @@
+class CompetitionTeamCoach < ApplicationRecord
+end

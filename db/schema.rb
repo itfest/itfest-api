@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_23_180737) do
+ActiveRecord::Schema.define(version: 2018_10_02_152156) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,23 @@ ActiveRecord::Schema.define(version: 2018_09_23_180737) do
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "competition_team_coaches", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "patronymic"
+    t.string "workplace"
+    t.string "position"
+    t.date "birthdate"
+    t.string "address"
+    t.string "phone"
+    t.string "email"
+    t.string "soc_media"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "competition_team_id"
+    t.index ["competition_team_id"], name: "index_competition_team_coaches_on_competition_team_id"
   end
 
   create_table "competition_team_members", force: :cascade do |t|
