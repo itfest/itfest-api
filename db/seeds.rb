@@ -56,3 +56,11 @@ require 'faker'
 		link: "/"
 	})
 end
+
+4.times do 
+	InformationElement.create({
+		title: Faker::Lorem.sentence(2),
+		content: Faker::Lorem.paragraph(2, true, 4),
+		link: "/"		
+	})
+end

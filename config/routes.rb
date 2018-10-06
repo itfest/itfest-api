@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   resources :partners
   resources :annotations
+  resources :information_elements
 
   resources :contest_nominations do 
     resources :contest_works

@@ -7,7 +7,7 @@ class AnnotationsController < ApplicationController
 	end
 
 	def create
-		@annotation = AnnotationElement.create! partner_params
+		@annotation = AnnotationElement.create! annotation_params
 		json_response @annotation, :created
 	end
 
@@ -16,7 +16,7 @@ class AnnotationsController < ApplicationController
 	end
 
 	def update
-		@annotation.update partner_params
+		@annotation.update annotation_params
 		head :no_content		
 	end
 
@@ -27,7 +27,7 @@ class AnnotationsController < ApplicationController
 
 	private
 
-	def partner_params
+	def annotation_params
 		params.permit :title, :content, :link
 	end
 
