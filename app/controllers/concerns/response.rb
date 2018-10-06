@@ -1,16 +1,6 @@
-module Response
-  # def json_response(object, status = :ok)
-    
-  # 	response_object = { status: status == :ok || status == :created }
-  	
-  #   if response_object[:status]
-  # 		response_object[:data] = object
-  # 	else
-  # 		response_object[:errors] = object
-  #   end
+  include ActionController::Serialization
 
-  #   render json: response_object, status: status
-  # end
+module Response
   def json_response(object, status = :ok)
     render json: object, status: status
   end

@@ -49,4 +49,10 @@ require 'faker'
 			contest_nomination: nom
 		})
 	end
+
+	AnnotationElement.create({
+		title: Faker::Lorem.sentence(2),
+		content: Faker::Lorem.paragraph(2, true, 4),
+		link: "/"
+	})
 end
