@@ -1,4 +1,4 @@
-  include ActionController::Serialization
+include ActionController::Serialization
 
 module Response
   def json_response(object, status = :ok)
