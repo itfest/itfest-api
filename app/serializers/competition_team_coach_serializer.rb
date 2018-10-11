@@ -1,4 +1,15 @@
 class CompetitionTeamCoachSerializer < ActiveModel::Serializer
-  attributes :id, :first_name
-  belongs_to :competition_team
+	attributes  :first_name,
+				:last_name,
+				:patronymic,
+				:birthdate,
+				:workplace,
+				:position,
+				:address,
+				:soc_media,
+				:email,
+				:phone,
+				:competition_team 
+
+  	belongs_to :competition_team
 end

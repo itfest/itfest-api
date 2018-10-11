@@ -6,9 +6,19 @@ class CompetitionTeamsController < ApplicationController
     json_response @competition_teams
   end
 
+  # def new
+  #   @competition_team = CompetitionTeam.new
+  #   @competition_team.competition_team_member.build
+  #   @competition_team.build_competition_team_coach
+  #   json_response @competition_team
+  # end
+
   def create
-    @competition_team = CompetitionTeam.create! comp_team_params
+    @competition_team = CompetitionTeam.create! competition_team_params
+    @competition_team.competition_team_members.build
+    @competition_team.build_competition_team_coach
     json_response @competition_team, :created
+    
   end
 
   def show
@@ -16,7 +26,7 @@ class CompetitionTeamsController < ApplicationController
   end
 
   def update
-    @competition_team.update comp_team_params
+    @competition_team.update competition_team_params
     head :no_content    
   end
 
@@ -27,8 +37,55 @@ class CompetitionTeamsController < ApplicationController
 
   private
 
-  def comp_team_params
-    params.permit :name, :how_learned_about, :notes
+  def competition_team_params
+  #   params.require(:competition_team).permit(
+  #   :name,
+  #   :how_learned_about,
+  #   :notes, 
+
+  #   competition_team_members:[
+  #       :id,
+  #       :first_name,
+  #       :last_name,
+  #       :patronymic,
+  #       :birthdate,
+  #       :university,
+  #       :speciality,
+  #       :group,
+  #       :year_of_study,
+  #       :address,
+  #       :email,
+  #       :phone
+  #     ],
+  #   competition_team_coach:[
+  #   ]
+    
+ 
+  # )
+
+  params.require(:competition_team).permit(
+    :name,
+    :how_learned_about,
+    :notes, 
+
+    competition_team_members_attributes:[
+        :id,
+        :first_name,
+        :last_name,
+        :patronymic,
+        :birthdate,
+        :university,
+        :speciality,
+        :group,
+        :year_of_study,
+        :address,
+        :email,
+        :phone
+      ]
+ 
+
+    )
+
   end
 
   def set_comp_team

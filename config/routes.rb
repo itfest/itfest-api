@@ -17,9 +17,9 @@ Rails.application.routes.draw do
         resources :contest_works
       end
 
-      resources :competition_teams do 
-        resources :competition_team_members
-      end
+      # resources :competition_teams do 
+      #   resources :competition_team_members
+      # end
     end
   end
   resources :partners, only: [:index, :show]
@@ -31,8 +31,9 @@ Rails.application.routes.draw do
   #   resources :contest_works
   # end
 
-  # resources :competition_teams do 
-  #   resources :competition_team_members
-  # end
+  resources :competition_teams do 
+    resources :competition_team_members
+    resources :competition_team_coach
+  end
 
 end
