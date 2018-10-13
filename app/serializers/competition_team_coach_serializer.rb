@@ -8,8 +8,6 @@ class CompetitionTeamCoachSerializer < ActiveModel::Serializer
 				:address,
 				:soc_media,
 				:email,
-				:phone,
-				:competition_team 
-
+				:phone
   	belongs_to :competition_team
 end

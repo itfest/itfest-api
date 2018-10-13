@@ -9,7 +9,6 @@ class CompetitionTeamMemberSerializer < ActiveModel::Serializer
 		      :year_of_study,
 		      :address,
 		      :email,
-		      :phone
-		      
+		      :phone	     
   belongs_to :competition_teams
 end

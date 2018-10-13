@@ -6,19 +6,9 @@ class CompetitionTeamsController < ApplicationController
     json_response @competition_teams
   end
 
-  # def new
-  #   @competition_team = CompetitionTeam.new
-  #   @competition_team.competition_team_member.build
-  #   @competition_team.build_competition_team_coach
-  #   json_response @competition_team
-  # end
-
   def create
     @competition_team = CompetitionTeam.create! competition_team_params
-    @competition_team.competition_team_members.build
-    @competition_team.build_competition_team_coach
     json_response @competition_team, :created
-    
   end
 
   def show
@@ -38,38 +28,13 @@ class CompetitionTeamsController < ApplicationController
   private
 
   def competition_team_params
-  #   params.require(:competition_team).permit(
-  #   :name,
-  #   :how_learned_about,
-  #   :notes, 
-
-  #   competition_team_members:[
-  #       :id,
-  #       :first_name,
-  #       :last_name,
-  #       :patronymic,
-  #       :birthdate,
-  #       :university,
-  #       :speciality,
-  #       :group,
-  #       :year_of_study,
-  #       :address,
-  #       :email,
-  #       :phone
-  #     ],
-  #   competition_team_coach:[
-  #   ]
-    
- 
-  # )
-
   params.require(:competition_team).permit(
     :name,
     :how_learned_about,
     :notes, 
 
     competition_team_members_attributes:[
-        :id,
+
         :first_name,
         :last_name,
         :patronymic,
@@ -81,8 +46,21 @@ class CompetitionTeamsController < ApplicationController
         :address,
         :email,
         :phone
-      ]
- 
+      ],
+    competition_team_coach_attributes: [
+
+        :first_name,
+        :last_name,
+        :patronymic,
+        :birthdate,
+        :workplace,
+        :position,
+        :address,
+        :soc_media,
+        :email,
+        :phone
+
+    ]
 
     )
 
