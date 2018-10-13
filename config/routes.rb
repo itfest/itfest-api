@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   # get 'general/info', to: 'general#info'
   # put 'general/info', to: 'general#info'
   # patch 'general/info', to: 'general#info'
-  
   authenticate :admin do
     scope "/admin" do
       resources :partners, only: [:new, :create, :edit, :update, :destroy]
@@ -17,9 +16,9 @@ Rails.application.routes.draw do
         resources :contest_works
       end
 
-      # resources :competition_teams do 
-      #   resources :competition_team_members
-      # end
+      resources :competition_teams do 
+        resources :competition_team_members
+      end
     end
   end
   resources :partners, only: [:index, :show]
@@ -27,11 +26,11 @@ Rails.application.routes.draw do
   resources :information_elements, only: [:index, :show]
  
 
-  # resources :contest_nominations do 
-  #   resources :contest_works
-  # end
+  resources :contest_nominations, constraints: lambda { |req| GeneralInfo.exists?(:is_registration_active => true)} do 
+    resources :contest_works
+  end
 
-  resources :competition_teams do 
+  resources :competition_teams, constraints: lambda { |req| GeneralInfo.exists?(:is_registration_active => true)} do 
     resources :competition_team_members
     resources :competition_team_coach
   end
