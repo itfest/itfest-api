@@ -1,5 +1,5 @@
 class CompetitionTeamCoach < ApplicationRecord
-	belongs_to :competition_team, optional:true
+	belongs_to :competition_team
 	validates :first_name, presence: true, length: {in: 2..16}, custom_name: true
 	validates :last_name, presence: true, length: {in: 2..16}, custom_name: true 
 	validates :patronymic, presence: true, length: {in: 2..16}, custom_name: true
