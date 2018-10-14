@@ -10,7 +10,7 @@ class CompetitionTeamsController < ApplicationController
     unless registration_active
       @competition_team = CompetitionTeam.create! competition_team_params
       json_response @competition_team, :created
-  end
+    end
   end
 
   def show

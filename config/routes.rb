@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :partners, only: [:index, :show]
   resources :annotations, only: [:index, :show]
   resources :information_elements, only: [:index, :show]
-  resources :general_infos, only: [:index,:show]
+  resources :general_infos, only: [:show]
 
   resources :contest_nominations,only:[:create] do 
     resources :contest_works,only:[:create]

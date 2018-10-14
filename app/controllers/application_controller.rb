@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
 	include ExceptionHandler
 	def registration_active
 		unless GeneralInfo.exists?(:is_registration_active => true)
-			json_response(error:'Регистрация закрыта',:status=>:service_unavailable)
+			json_response({error:'Регистрация закрыта'}.to_json,503)
 	    end
 	end
 end
