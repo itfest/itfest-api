@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :annotations
       resources :information_elements
       resources :general_infos
+      resources :pages
 
       resources :contest_nominations do 
         resources :contest_works
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
   resources :annotations, only: [:index, :show]
   resources :information_elements, only: [:index, :show]
   resources :general_infos, only: [:show]
+  resources :pages, only: [:index,:show]
+
 
   resources :contest_nominations,only:[:create] do 
     resources :contest_works,only:[:create]
