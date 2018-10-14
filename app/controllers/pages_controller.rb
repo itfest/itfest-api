@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def index
     @pages = Page.all
-    json_response @pages
+    json_response @pages.as_json(except: [:content])
   end
 
   def create
