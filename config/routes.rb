@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :pages, only: [:index,:show]
 
 
-  resources :contest_nominations,only:[:create] do 
+  resources :contest_nominations, only:[:index] do 
     resources :contest_works,only:[:create]
   end
 

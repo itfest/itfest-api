@@ -7,8 +7,10 @@ class ContestWorksController < ApplicationController
 	end
 
 	def create
-		@contest_nomination.contest_works.create!(contest_work_params)
-		json_response @contest_nomination, :created
+		unless registration_active
+			@contest_nomination.contest_works.create! contest_work_params
+			json_response @contest_nomination, :created
+		end
 	end
 
 	def show
