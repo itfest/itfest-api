@@ -43,32 +43,8 @@ require 'faker'
 		phone: Faker::PhoneNumber.cell_phone,
 		competition_team: team
 	})
-
-	nom = ContestNomination.create({
-		caption: Faker::Company.name,
-		availible_for_registration: Faker::Boolean.boolean
-	})
-
-	3.times do
-		ContestWork.create({
-			first_name: Faker::Name.first_name,
-			last_name: Faker::Name.last_name,
-			patronymic: Faker::Name.middle_name,
-			university: Faker::Name.middle_name,
-			year_of_study: Faker::Number.between(1,6),
-			group: Faker::Number.number(6),
-			email: Faker::Internet.email,
-			phone: Faker::PhoneNumber.cell_phone,
-			contest_nomination: nom
-		})
-	end
-
-	AnnotationElement.create({
-		title: Faker::Lorem.sentence(2),
-		content: Faker::Lorem.paragraph(2, true, 4),
-		link: "/"
-	})
 end
+
 
 4.times do 
 	InformationElement.create({
@@ -77,3 +53,33 @@ end
 		link: "/"		
 	})
 end
+
+3.times do 
+
+	nom = ContestNomination.create({
+		caption: Faker::Company.name,
+		availible_for_registration: Faker::Boolean.boolean
+	})
+
+
+		ContestWork.create({
+			first_name: Faker::Name.first_name,
+			last_name: Faker::Name.last_name,
+			patronymic: Faker::Name.middle_name,
+			university: Faker::Name.middle_name,
+			speciality: Faker::Name.middle_name,
+			year_of_study: Faker::Number.between(1,6),
+			group: Faker::Number.number(6),
+			email: Faker::Internet.email,
+			phone: Faker::PhoneNumber.cell_phone,
+			contest_nomination: nom
+		})
+end
+
+3.times do 
+	AnnotationElement.create({
+		title: Faker::Lorem.sentence(2),
+		content: Faker::Lorem.paragraph(2, true, 4),
+		link: "/"
+	})
+end 
