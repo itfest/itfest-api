@@ -16,7 +16,7 @@ Rails.application.routes.draw do
         resources :contest_works
       end
 
-      resources :competition_teams do 
+      resources :competition_teams do
         resources :competition_team_members
       end
     end
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     resources :contest_works,only:[:create]
   end
 
-  resources :competition_teams,only:[:create] do 
+  resources :competition_teams,only:[:index,:create] do 
     resources :competition_team_members,only:[:create]
     resources :competition_team_coach,only:[:create]
   end

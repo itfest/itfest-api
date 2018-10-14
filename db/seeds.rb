@@ -30,6 +30,19 @@ require 'faker'
 			competition_team: team
 		})
 	end
+	CompetitionTeamCoach.create({
+		first_name: Faker::Name.first_name,
+		last_name: Faker::Name.last_name,
+		patronymic: Faker::Name.middle_name,
+		birthdate: Faker::Date.backward(13),
+		workplace: Faker::Name.middle_name,
+		position: Faker::Lorem.word,
+		address: Faker::Lorem.word,
+		soc_media: Faker::Lorem.word,
+		email: Faker::Internet.email,
+		phone: Faker::PhoneNumber.cell_phone,
+		competition_team: team
+	})
 
 	nom = ContestNomination.create({
 		caption: Faker::Company.name,
