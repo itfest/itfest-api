@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'general/info', to: 'general#info'
 
   authenticate :admin do
     scope "/admin" do
@@ -23,7 +24,6 @@ Rails.application.routes.draw do
   resources :partners, only: [:index, :show]
   resources :annotations, only: [:index, :show]
   resources :information_elements, only: [:index, :show]
-  resources :general_infos, only: [:show]
   resources :pages, only: [:index,:show]
 
 
