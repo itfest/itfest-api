@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_02_152156) do
+ActiveRecord::Schema.define(version: 2018_10_14_180518) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2018_10_02_152156) do
     t.string "annotation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "footer"
   end
 
   create_table "information_elements", force: :cascade do |t|
