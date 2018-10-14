@@ -2,13 +2,15 @@ class CompetitionTeamsController < ApplicationController
   before_action :set_comp_team, only: [:show, :update, :destroy]
 
   def index
-    @competition_teams = CompetitionTeam.all
-    json_response @competition_teams
+      @competition_teams = CompetitionTeam.all
+      json_response @competition_teams
   end
 
   def create
-    @competition_team = CompetitionTeam.create! competition_team_params
-    json_response @competition_team, :created
+    unless registration_active
+      @competition_team = CompetitionTeam.create! competition_team_params
+      json_response @competition_team, :created
+  end
   end
 
   def show
