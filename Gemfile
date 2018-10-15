@@ -29,8 +29,12 @@ gem 'rack-cors', require: 'rack/cors'
 
 # image upload
 gem 'carrierwave'
-
+# serializer
 gem 'active_model_serializers'
+# default admin page
+gem 'rails_admin'
+# for routing
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
