@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_14_180518) do
+ActiveRecord::Schema.define(version: 2018_10_23_112809) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -85,6 +85,12 @@ ActiveRecord::Schema.define(version: 2018_10_14_180518) do
     t.datetime "updated_at", null: false
     t.boolean "approved"
     t.index ["contest_nomination_id"], name: "index_contest_works_on_contest_nomination_id"
+  end
+
+  create_table "downloads", force: :cascade do |t|
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "general_infos", force: :cascade do |t|

@@ -37,6 +37,6 @@ Rails.application.routes.draw do
     resources :competition_team_coach,only:[:create]
   end
 
-  match '/uploads/*filename', :to => 'downloads#download', via: :all
+  match '/uploads/download/file/*/*filename', :to => 'downloads#download', via: :all
   match '*a', :to => 'application#not_found', via: :all
 end
