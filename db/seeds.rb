@@ -57,23 +57,41 @@ end
 3.times do 
 
 	nom = ContestNomination.create({
-		caption: Faker::Company.name,
+		caption: Faker::Name.first_name, 
 		availible_for_registration: Faker::Boolean.boolean
 	})
 
 
-		ContestWork.create({
-			first_name: Faker::Name.first_name,
-			last_name: Faker::Name.last_name,
-			patronymic: Faker::Name.middle_name,
-			university: Faker::Name.middle_name,
-			speciality: Faker::Name.middle_name,
-			year_of_study: Faker::Number.between(1,6),
-			group: Faker::Number.number(6),
-			email: Faker::Internet.email,
-			phone: Faker::PhoneNumber.cell_phone,
+		work = ContestWork.create({
+
+			work_title: Faker::Name.first_name, 
+			team_name: Faker::Name.first_name,  
+			manager: Faker::Name.first_name, 
+			notes: Faker::Name.first_name, 
+			software: Faker::Name.first_name,
 			contest_nomination: nom
+
 		})
+
+			ContestWorkMember.create({
+
+				notes: Faker::Name.first_name, 
+				first_name: Faker::Name.first_name, 
+				last_name: Faker::Name.last_name,
+				patronymic: Faker::Name.middle_name,
+				university: Faker::Name.middle_name, 
+				speciality: Faker::Name.middle_name,
+				year_of_study: Faker::Number.between(1,6),
+				group: Faker::Number.number(6),
+				address: Faker::Name.middle_name,
+				birthdate: Faker::Date.backward(13), 
+				email: Faker::Internet.email,
+				phone: Faker::PhoneNumber.cell_phone,
+				show_email: Faker::Boolean.boolean, 
+				soc_media: Faker::Name.middle_name,
+				how_learned_about: Faker::Name.middle_name,
+				contest_work: work
+			})
 end
 
 3.times do 

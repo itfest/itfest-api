@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_112809) do
+ActiveRecord::Schema.define(version: 2018_10_26_141302) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -70,7 +70,8 @@ ActiveRecord::Schema.define(version: 2018_10_23_112809) do
     t.boolean "availible_for_registration"
   end
 
-  create_table "contest_works", force: :cascade do |t|
+  create_table "contest_work_members", force: :cascade do |t|
+    t.text "notes"
     t.string "first_name"
     t.string "last_name"
     t.string "patronymic"
@@ -78,12 +79,29 @@ ActiveRecord::Schema.define(version: 2018_10_23_112809) do
     t.string "speciality"
     t.decimal "year_of_study"
     t.string "group"
+    t.string "address"
+    t.date "birthdate"
     t.string "email"
     t.string "phone"
+    t.boolean "show_email"
+    t.string "soc_media"
+    t.string "how_learned_about"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "contest_work_id"
+    t.index ["contest_work_id"], name: "index_contest_work_members_on_contest_work_id"
+  end
+
+  create_table "contest_works", force: :cascade do |t|
     t.integer "contest_nomination_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "approved"
+    t.string "work_title"
+    t.string "team_name"
+    t.string "manager"
+    t.text "notes"
+    t.string "software"
     t.index ["contest_nomination_id"], name: "index_contest_works_on_contest_nomination_id"
   end
 

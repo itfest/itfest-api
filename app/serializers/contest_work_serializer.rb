@@ -1,7 +1,5 @@
 class ContestWorkSerializer < ActiveModel::Serializer
-  attributes :first_name, 
-			 :last_name, 
-			 :patronymic, 
-			 :university
-  belongs_to :contest_nomination
+  attributes :work_title, 
+			 :team_name
+  has_many :contest_work_members
 end
