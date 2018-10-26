@@ -7,7 +7,7 @@ class CompetitionTeamCoach < ApplicationRecord
 	validates :workplace, presence: true
 	validates :position, presence: true
 	validates :address, presence: true
-	validates :soc_media
+	validate  :soc_media
 	validates :email, presence: true, uniqueness: true, email: true
 	validates :phone, presence: true
 	validates :competition_team, presence: true
