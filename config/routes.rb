@@ -29,12 +29,12 @@ Rails.application.routes.draw do
 
 
   resources :contest_nominations, only:[:index] do 
-    resources :contest_works,only:[:create]
+    resources :contest_works,only:[:index,:create]
   end
 
   resources :competition_teams,only:[:index,:create] do 
-    resources :competition_team_members,only:[:create]
-    resources :competition_team_coach,only:[:create]
+    resources :competition_team_members,only:[:index,:create]
+    resources :competition_team_coach,only:[:index,:create]
   end
 
   match '/uploads/download/file/*/*filename', :to => 'downloads#download', via: :all
