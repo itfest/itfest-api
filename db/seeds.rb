@@ -7,45 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-5.times do 
-	team = CompetitionTeam.create ({
-		name: Faker::Name.middle_name,
-		how_learned_about: Faker::Lorem.word,
-		notes: Faker::Lorem.word
-	})
-
-	3.times do
-		CompetitionTeamMember.create({
-			first_name: Faker::Name.first_name,
-			last_name: Faker::Name.last_name,
-			patronymic: Faker::Name.middle_name,
-			birthdate: Faker::Date.backward(13),
-			university: Faker::Name.middle_name,
-			speciality: Faker::Lorem.word,
-			address: Faker::Lorem.word,
-			year_of_study: Faker::Number.between(1,6),
-			group: Faker::Number.number(6),
-			email: Faker::Internet.email,
-			phone: Faker::PhoneNumber.cell_phone,
-			competition_team: team
-		})
-	end
-	CompetitionTeamCoach.create({
-		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.last_name,
-		patronymic: Faker::Name.middle_name,
-		birthdate: Faker::Date.backward(13),
-		workplace: Faker::Name.middle_name,
-		position: Faker::Lorem.word,
-		address: Faker::Lorem.word,
-		soc_media: Faker::Lorem.word,
-		email: Faker::Internet.email,
-		phone: Faker::PhoneNumber.cell_phone,
-		competition_team: team
-	})
-end
-
-
 4.times do 
 	InformationElement.create({
 		title: Faker::Lorem.sentence(2),
