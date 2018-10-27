@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_27_190311) do
+ActiveRecord::Schema.define(version: 2018_10_27_224358) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,23 @@ ActiveRecord::Schema.define(version: 2018_10_27_190311) do
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "coaches", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "patronymic"
+    t.string "workplace"
+    t.string "position"
+    t.date "birthdate"
+    t.string "address"
+    t.string "phone"
+    t.string "email"
+    t.string "soc_media"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "event_participation_note_id"
+    t.index ["event_participation_note_id"], name: "index_coaches_on_event_participation_note_id"
   end
 
   create_table "contest_nominations", force: :cascade do |t|
@@ -68,6 +85,39 @@ ActiveRecord::Schema.define(version: 2018_10_27_190311) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "event_participation_notes", force: :cascade do |t|
+    t.text "notes"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "patronymic"
+    t.string "university"
+    t.string "speciality"
+    t.decimal "year_of_study"
+    t.string "group"
+    t.string "address"
+    t.date "birthdate"
+    t.string "email"
+    t.string "phone"
+    t.boolean "show_email"
+    t.string "soc_media"
+    t.string "how_learned_about"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_event_participation_notes_on_event_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.boolean "coach"
+    t.boolean "question"
+    t.boolean "notes"
+    t.decimal "team_limit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "general_infos", force: :cascade do |t|
     t.string "dates"
     t.boolean "is_registration_active"
@@ -107,6 +157,14 @@ ActiveRecord::Schema.define(version: 2018_10_27_190311) do
     t.string "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "question_lists", force: :cascade do |t|
+    t.text "list"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "event_participation_note_id"
+    t.index ["event_participation_note_id"], name: "index_question_lists_on_event_participation_note_id"
   end
 
 end
