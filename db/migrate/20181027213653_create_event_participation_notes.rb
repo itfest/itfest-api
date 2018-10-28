@@ -16,6 +16,7 @@ class CreateEventParticipationNotes < ActiveRecord::Migration[5.2]
 		t.boolean :show_email
 		t.string  :soc_media
 		t.string  :how_learned_about
+		t.text    :answers
 		
 		t.timestamps
     end

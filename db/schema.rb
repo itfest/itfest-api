@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2018_10_27_224358) do
     t.boolean "show_email"
     t.string "soc_media"
     t.string "how_learned_about"
+    t.text "answers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "event_id"
@@ -163,8 +164,8 @@ ActiveRecord::Schema.define(version: 2018_10_27_224358) do
     t.text "list"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "event_participation_note_id"
-    t.index ["event_participation_note_id"], name: "index_question_lists_on_event_participation_note_id"
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_question_lists_on_event_id"
   end
 
 end

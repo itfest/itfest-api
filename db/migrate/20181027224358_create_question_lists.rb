@@ -4,6 +4,6 @@ class CreateQuestionLists < ActiveRecord::Migration[5.2]
       t.text :list
       t.timestamps
     end
-    add_reference :question_lists, :event_participation_note, index: true
+    add_reference :question_lists, :event, index: true
   end
 end

@@ -24,10 +24,15 @@ Rails.application.routes.draw do
   resources :information_elements, only: [:index, :show]
   resources :pages, only: [:index,:show]
 
+  resources :events, only:[:index] do 
+    resources :event_participation_notes,only:[:index,:create]
+  end
+
 
   resources :contest_nominations, only:[:index] do 
     resources :contest_works,only:[:index,:create]
   end
+
 
   match '/uploads/download/file/*/*filename', :to => 'downloads#download', via: :all
   match '*a', :to => 'application#not_found', via: :all
