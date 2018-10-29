@@ -63,21 +63,17 @@ end
 	})
 end 
 
+6.times do 
 
-Event.create({
-	title: 'Олимпиада по программированию',
-	description: Faker::Lorem.sentence(4),
-	coach: true,
-	question: true,
-	notes: true,
-	team_limit: 3
-})
+	event=Event.create({
+		title: Faker::Name.first_name, 
+		description: Faker::Lorem.sentence(4),
+		has_coach:  Faker::Boolean.boolean,
+		has_question:  Faker::Boolean.boolean,
+		is_online_participation_available: Faker::Boolean.boolean,
+		team_limit: Faker::Number.between(1, 3)
+	})
 
-Event.create({
-	title: 'geogebra',
-	description: Faker::Lorem.sentence(4),
-	coach: true,
-	question: true,
-	notes: true,
-	team_limit: 3
-})
+
+end 
+
