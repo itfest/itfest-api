@@ -18,7 +18,7 @@ class EventParticipationNote < ApplicationRecord
 	validate   :show_email
 	validate   :soc_media
 	validate   :answers
-	validates  :notes
+	validate   :notes
 	validates  :event, presence: true
 
 	accepts_nested_attributes_for :coach
