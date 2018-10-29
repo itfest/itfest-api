@@ -111,9 +111,9 @@ ActiveRecord::Schema.define(version: 2018_10_27_224358) do
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.boolean "coach"
-    t.boolean "question"
-    t.boolean "notes"
+    t.boolean "has_coach"
+    t.boolean "has_question"
+    t.boolean "is_online_participation_available"
     t.decimal "team_limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

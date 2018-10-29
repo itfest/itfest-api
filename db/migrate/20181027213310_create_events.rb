@@ -3,9 +3,9 @@ class CreateEvents < ActiveRecord::Migration[5.2]
 		create_table :events do |t|
 			t.string  :title
 			t.text    :description
-			t.boolean :coach
-			t.boolean :question
-			t.boolean :notes
+			t.boolean :has_coach
+			t.boolean :has_question
+			t.boolean :is_online_participation_available
 			t.decimal :team_limit
 
 			t.timestamps

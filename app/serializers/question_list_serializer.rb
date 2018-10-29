@@ -1,4 +1,4 @@
 class QuestionListSerializer < ActiveModel::Serializer
-  attributes :list
+  attributes :id,:list
   belongs_to :event
 end

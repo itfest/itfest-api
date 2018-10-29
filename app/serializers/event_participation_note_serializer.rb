@@ -1,6 +1,8 @@
 class EventParticipationNoteSerializer < ActiveModel::Serializer
   belongs_to :event
-  attributes :first_name,
+  attributes 
+  			 :id,
+  			 :first_name,
 			 :last_name, 
 			 :patronymic,
 			 :university,
