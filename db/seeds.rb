@@ -62,3 +62,22 @@ end
 		link: "/"
 	})
 end 
+
+
+Event.create({
+	title: 'Олимпиада по программированию',
+	description: Faker::Lorem.sentence(4),
+	coach: true,
+	question: true,
+	notes: true,
+	team_limit: 3
+})
+
+Event.create({
+	title: 'geogebra',
+	description: Faker::Lorem.sentence(4),
+	coach: true,
+	question: true,
+	notes: true,
+	team_limit: 3
+})
