@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_27_224358) do
+ActiveRecord::Schema.define(version: 2018_10_29_220012) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 2018_10_27_224358) do
   end
 
   create_table "event_participation_notes", force: :cascade do |t|
-    t.text "notes"
     t.string "first_name"
     t.string "last_name"
     t.string "patronymic"
@@ -105,6 +104,7 @@ ActiveRecord::Schema.define(version: 2018_10_27_224358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "event_id"
+    t.boolean "is_online_participation_available"
     t.index ["event_id"], name: "index_event_participation_notes_on_event_id"
   end
 
