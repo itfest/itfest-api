@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_220012) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "event_id"
-    t.boolean "is_online_participation_available"
+    t.boolean "is_online"
     t.index ["event_id"], name: "index_event_participation_notes_on_event_id"
   end
 
