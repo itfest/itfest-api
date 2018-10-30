@@ -80,7 +80,12 @@ end
 	
 		team=EventParticipationNote.create({
 
-			event: event
+
+			event: event,
+			title: Faker::Name.first_name,
+			how_learned_about: Faker::Name.first_name,
+			answers: Faker::Name.first_name,
+			is_online: Faker::Boolean.boolean
 
 
 		})
@@ -108,7 +113,6 @@ end
 
 			EventParticipant.create({
 
-				how_learned_about: Faker::Name.first_name,
 				first_name: Faker::Name.first_name,  
 				last_name: Faker::Name.first_name,  
 				patronymic: Faker::Name.first_name, 
@@ -122,10 +126,7 @@ end
 				phone: Faker::PhoneNumber.cell_phone,
 				city: Faker::Name.first_name,
 				
-				show_email: Faker::Boolean.boolean,
 				soc_media: Faker::Name.first_name,
-				answers: Faker::Name.first_name,
-				is_online: Faker::Boolean.boolean,
 
 				event_participation_note:team
 
