@@ -32,9 +32,9 @@ class EventsController < ApplicationController
 				:title,
 				:team_limit, 
 				:description, 
-				:coach, 
-				:question,
-				:notes
+				:has_coach, 
+				:has_question,
+				:is_online_participation_available
 		)
 	end
 

@@ -32,10 +32,13 @@ class EventParticipationNotesController < ApplicationController
 	def event_part_params
 		params.require(:event_participation_note).permit(
 
+		:title,	
+		:is_online,
+		:answers,
+		:how_learned_about,
+
 		event_participants_attributes: [
 
-			:is_online,
-			:city,
 			:first_name,
 			:last_name, 
 			:patronymic,
@@ -47,10 +50,8 @@ class EventParticipationNotesController < ApplicationController
 			:birthdate, 
 			:email,
 			:phone, 
-			:show_email,
-			:soc_media,
-			:answers,
-			:how_learned_about,
+			:soc_media
+
 
 		],
 

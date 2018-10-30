@@ -12,7 +12,6 @@ class EventParticipant < ApplicationRecord
 	validates  :birthdate, presence: true
 	validates  :email, presence: true, uniqueness: true, email: true
 	validates  :phone, presence: true
-	validates  :city, presence: true
 
 	validate   :soc_media
 	

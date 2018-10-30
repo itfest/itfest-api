@@ -123,7 +123,6 @@ end
 				birthdate: Faker::Date.backward(13),
 				email: Faker::Internet.email,
 				phone: Faker::PhoneNumber.cell_phone,
-				city: Faker::Name.first_name,
 				
 				soc_media: Faker::Name.first_name,
 

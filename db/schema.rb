@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_210552) do
+ActiveRecord::Schema.define(version: 2018_10_30_220223) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 2018_10_30_210552) do
     t.string "email"
     t.string "phone"
     t.string "soc_media"
-    t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "event_participation_note_id"
