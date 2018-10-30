@@ -30,6 +30,7 @@ end
 			manager: Faker::Name.first_name, 
 			notes: Faker::Name.first_name, 
 			software: Faker::Name.first_name,
+			ref_to_work: "/",
 			contest_nomination: nom
 
 		})
