@@ -32,22 +32,26 @@ class EventParticipationNotesController < ApplicationController
 	def event_part_params
 		params.require(:event_participation_note).permit(
 
-		:notes,
-		:first_name,
-		:last_name, 
-		:patronymic,
-		:university,
-		:speciality, 
-		:year_of_study, 
-		:group, 
-		:address,
-		:birthdate, 
-		:email,
-		:phone, 
-		:show_email,
-		:soc_media,
-		:answers,
-		:how_learned_about,
+		event_participants_attributes: [
+
+			:notes,
+			:first_name,
+			:last_name, 
+			:patronymic,
+			:university,
+			:speciality, 
+			:year_of_study, 
+			:group, 
+			:address,
+			:birthdate, 
+			:email,
+			:phone, 
+			:show_email,
+			:soc_media,
+			:answers,
+			:how_learned_about,
+
+		],
 
 		coach_attributes: [
 			

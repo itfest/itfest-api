@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_165925) do
+ActiveRecord::Schema.define(version: 2018_10_30_172754) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_165925) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "event_participation_notes", force: :cascade do |t|
+  create_table "event_participants", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "patronymic"
@@ -98,14 +98,22 @@ ActiveRecord::Schema.define(version: 2018_10_30_165925) do
     t.date "birthdate"
     t.string "email"
     t.string "phone"
-    t.boolean "show_email"
     t.string "soc_media"
+    t.string "city"
     t.string "how_learned_about"
+    t.text "is_online"
+    t.boolean "show_email"
     t.text "answers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "event_participation_note_id"
+    t.index ["event_participation_note_id"], name: "index_event_participants_on_event_participation_note_id"
+  end
+
+  create_table "event_participation_notes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "event_id"
-    t.boolean "is_online"
     t.index ["event_id"], name: "index_event_participation_notes_on_event_id"
   end
 

@@ -19,18 +19,20 @@ Rails.application.routes.draw do
 
     end
   end
-  resources :partners, only: [:index, :show ]
-  resources :annotations, only: [:index, :show ]
-  resources :information_elements, only: [:index, :show ]
+  resources :partners, only: [:index, :show]
+  resources :annotations, only: [:index, :show]
+  resources :information_elements, only: [:index, :show]
   resources :pages, only: [:index,:show ]
 
-  resources :events, only:[:index, :show ] do 
-    resources :event_participation_notes,only:[:index,:create ]
+  resources :events, only: [:index, :show ] do 
+    resources :event_participation_notes,only: [:index,:create] do
+      resources :event_participations, only: [:index,:create]
+    end
   end
 
 
-  resources :contest_nominations, only:[:index, :show ]  do 
-    resources :contest_works,only:[:index,:create ]
+  resources :contest_nominations, only: [:index, :show ]  do 
+    resources :contest_works,only: [:index,:create ]
   end
 
 
