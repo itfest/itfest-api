@@ -1,6 +1,7 @@
 class ContestWorkMember < ApplicationRecord
 	belongs_to :contest_work
 	validates :notes, presence: true
+	
 	validates :first_name, presence: true, length: {in: 2..16}, custom_name: true
 	validates :last_name, presence: true, length: {in: 2..16}, custom_name: true 
 	validates :patronymic, presence: true, length: {in: 2..16}, custom_name: true
