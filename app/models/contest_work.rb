@@ -8,6 +8,8 @@ class ContestWork < ApplicationRecord
 	validates :notes, presence: true, length: {in: 2..48}, custom_name: true
 	validates :software, presence: true, length: {in: 2..48}
 	validates :contest_nomination, presence: true
+	validates :ref_to_work, presence: true
+	
 	
 	accepts_nested_attributes_for :contest_work_members, limit: 3
 end
