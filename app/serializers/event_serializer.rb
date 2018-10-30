@@ -7,7 +7,6 @@ class EventSerializer < ActiveModel::Serializer
   			 :description, 
   			 :has_coach, 
   			 :has_question, 
-  			 :is_online_participation_available,
-  			 :is_show_email_available
+  			 :is_online_participation_available
   
 end
