@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_172754) do
+ActiveRecord::Schema.define(version: 2018_10_30_195137) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_172754) do
     t.decimal "team_limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_show_email_available"
   end
 
   create_table "general_infos", force: :cascade do |t|

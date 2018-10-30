@@ -15,8 +15,9 @@ class EventParticipant < ApplicationRecord
 	validates  :phone, presence: true
 	validates  :city, presence: true
 
-	validate   :show_email
 	validate   :soc_media
+	
+	validate   :show_email
 	validate   :answers
 	validate   :is_online
 			    # presence: {if: :is_online_participation_available?}

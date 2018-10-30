@@ -71,6 +71,7 @@ end
 		has_coach:  Faker::Boolean.boolean,
 		has_question:  Faker::Boolean.boolean,
 		is_online_participation_available: Faker::Boolean.boolean,
+		is_show_email_available: Faker::Boolean.boolean,
 		team_limit: Faker::Number.between(1, 3)
 	})
  
