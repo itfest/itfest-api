@@ -74,6 +74,49 @@ end
 		team_limit: Faker::Number.between(1, 3)
 	})
 
+	
+	member=EventParticipationNote.create({
+
+		how_learned_about: Faker::Name.first_name,
+		first_name: Faker::Name.first_name,  
+		last_name: Faker::Name.first_name,  
+		patronymic: Faker::Name.first_name, 
+		university: Faker::Name.middle_name,
+		speciality: Faker::Name.middle_name,
+		year_of_study: Faker::Number.between(1, 5),
+		group: Faker::Name.middle_name, 
+		address: Faker::Name.middle_name,
+		birthdate: Faker::Date.backward(13),
+		email: Faker::Internet.email,
+		phone: Faker::PhoneNumber.cell_phone,
+
+		show_email: Faker::Boolean.boolean,
+		soc_media: Faker::Name.first_name,
+		answers: Faker::Name.first_name,
+		is_online: Faker::Boolean.boolean,
+
+		event: event
+
+
+	})
+	
+
+	Coach.create({
+
+	first_name: Faker::Name.first_name, 
+	last_name: Faker::Name.first_name, 
+	patronymic: Faker::Name.first_name, 
+	birthdate: Faker::Date.backward(13),
+	workplace: Faker::Name.first_name,
+	position: Faker::Name.first_name,
+	address: Faker::Name.first_name,
+	soc_media: Faker::Name.first_name,
+	email: Faker::Internet.email,
+	phone: Faker::PhoneNumber.cell_phone,
+	event_participation_note: member
+
+
+	})
 
 end 
 
