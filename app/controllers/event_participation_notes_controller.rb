@@ -34,7 +34,8 @@ class EventParticipationNotesController < ApplicationController
 
 		event_participants_attributes: [
 
-			:notes,
+			:is_online,
+			:city,
 			:first_name,
 			:last_name, 
 			:patronymic,
