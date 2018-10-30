@@ -11,5 +11,5 @@ class ContestWork < ApplicationRecord
 	validates :ref_to_work, presence: true
 	
 	
-	accepts_nested_attributes_for :contest_work_members, limit: 3
+	accepts_nested_attributes_for :contest_work_members
 end
