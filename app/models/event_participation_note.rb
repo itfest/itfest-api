@@ -14,4 +14,7 @@ class EventParticipationNote < ApplicationRecord
 
 	accepts_nested_attributes_for :coach
 	accepts_nested_attributes_for :event_participants
+
+	accepts_nested_attributes_for :question_answers
+	accepts_nested_attributes_for :question_lists
 end
