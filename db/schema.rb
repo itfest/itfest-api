@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_220223) do
+ActiveRecord::Schema.define(version: 2018_10_31_185447) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(version: 2018_10_30_220223) do
     t.text "how_learned_about"
     t.boolean "is_online"
     t.string "title"
-    t.text "answers"
     t.index ["event_id"], name: "index_event_participation_notes_on_event_id"
   end
 
@@ -168,12 +167,29 @@ ActiveRecord::Schema.define(version: 2018_10_30_220223) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "question_answers", force: :cascade do |t|
+    t.integer "event_participation_note_id"
+    t.integer "question_list_id"
+    t.text "answer_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_participation_note_id"], name: "index_question_answers_on_event_participation_note_id"
+    t.index ["question_list_id"], name: "index_question_answers_on_question_list_id"
+  end
+
   create_table "question_lists", force: :cascade do |t|
-    t.text "list"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "event_id"
+    t.integer "question_id"
     t.index ["event_id"], name: "index_question_lists_on_event_id"
+    t.index ["question_id"], name: "index_question_lists_on_question_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "question_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
