@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_220223) do
+ActiveRecord::Schema.define(version: 2018_10_31_221432) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 2018_10_30_220223) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "availible_for_registration"
+    t.text "description"
   end
 
   create_table "contest_work_members", force: :cascade do |t|
-    t.text "notes"
     t.string "first_name"
     t.string "last_name"
     t.string "patronymic"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2018_10_30_220223) do
     t.string "phone"
     t.boolean "show_email"
     t.string "soc_media"
-    t.string "how_learned_about"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "contest_work_id"
@@ -73,10 +72,11 @@ ActiveRecord::Schema.define(version: 2018_10_30_220223) do
     t.boolean "approved"
     t.string "work_title"
     t.string "team_name"
-    t.string "manager"
+    t.string "mentor"
     t.text "notes"
     t.string "software"
     t.string "ref_to_work"
+    t.text "how_learned_about"
     t.index ["contest_nomination_id"], name: "index_contest_works_on_contest_nomination_id"
   end
 
