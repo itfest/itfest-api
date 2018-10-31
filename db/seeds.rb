@@ -19,6 +19,7 @@ end
 
 	nom = ContestNomination.create({
 		caption: Faker::Name.first_name, 
+		description: Faker::Lorem.paragraph(2, true, 4), 
 		availible_for_registration: Faker::Boolean.boolean
 	})
 
@@ -27,17 +28,17 @@ end
 
 			work_title: Faker::Name.first_name, 
 			team_name: Faker::Name.first_name,  
-			manager: Faker::Name.first_name, 
+			mentor: Faker::Name.first_name, 
 			notes: Faker::Name.first_name, 
 			software: Faker::Name.first_name,
+			how_learned_about: Faker::Name.middle_name,
 			ref_to_work: "/",
 			contest_nomination: nom
 
 		})
 
 			ContestWorkMember.create({
-
-				notes: Faker::Name.first_name, 
+ 
 				first_name: Faker::Name.first_name, 
 				last_name: Faker::Name.last_name,
 				patronymic: Faker::Name.middle_name,
@@ -51,7 +52,6 @@ end
 				phone: Faker::PhoneNumber.cell_phone,
 				show_email: Faker::Boolean.boolean, 
 				soc_media: Faker::Name.middle_name,
-				how_learned_about: Faker::Name.middle_name,
 				contest_work: work
 			})
 end

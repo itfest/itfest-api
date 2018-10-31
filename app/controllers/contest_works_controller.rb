@@ -34,13 +34,13 @@ class ContestWorksController < ApplicationController
 
 		:work_title,
 		:team_name, 
-		:manager, 
+		:mentor, 
 		:notes, 
 		:software,
+		:how_learned_about,
 
 		contest_work_members_attributes: [
 			
-			:notes, 
 			:first_name, 
 			:last_name, 
 			:patronymic,
@@ -53,9 +53,7 @@ class ContestWorksController < ApplicationController
 			:email, 
 			:phone,
 			:show_email, 
-			:soc_media,
-			:how_learned_about
-
+			:soc_media
 		] 
 
 		)
