@@ -83,7 +83,6 @@ end
 			event: event,
 			title: Faker::Name.first_name,
 			how_learned_about: Faker::Name.first_name,
-			answers: Faker::Name.first_name,
 			is_online: Faker::Boolean.boolean
 
 
