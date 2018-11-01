@@ -4,7 +4,7 @@ class ContestWork < ApplicationRecord
 
 	validates :work_title, presence: true, length: {in: 2..48}, custom_name: true
 	validates :team_name, length: {in: 2..48}, custom_name: true
-	validates :mentor, presence: true, length: {in: 2..48}, custom_name: true
+	validates :mentor, length: {in: 2..48}, custom_name: true
 	validates :notes, presence: true, length: {in: 2..48}, custom_name: true
 	validates :software, presence: true, length: {in: 2..48}
 	validates :contest_nomination, presence: true
