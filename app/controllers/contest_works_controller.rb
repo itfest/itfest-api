@@ -37,6 +37,7 @@ class ContestWorksController < ApplicationController
 		:mentor, 
 		:notes, 
 		:software,
+		:ref_to_work,
 		:how_learned_about,
 
 		contest_work_members_attributes: [

@@ -3,8 +3,8 @@ class ContestWork < ApplicationRecord
 	has_many :contest_work_members, :dependent => :destroy
 
 	validates :work_title, presence: true, length: {in: 2..48}, custom_name: true
-	validates :team_name, length: {in: 2..48}, custom_name: true
-	validates :mentor, length: {in: 2..48}, custom_name: true
+	validates :team_name, custom_name: true
+	validates :mentor, custom_name: true
 	validate  :notes
 	validates :software, custom_name: true
 	validates :contest_nomination, presence: true
