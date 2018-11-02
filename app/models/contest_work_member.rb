@@ -9,7 +9,7 @@ class ContestWorkMember < ApplicationRecord
 	validates :group, presence: true
 	validates :address, presence: true
 	validates :birthdate, presence: true
-	validates :email, presence: true, uniqueness: true, email: true
+	validates :email, presence: true, email: true
 	validates :phone, presence: true
 	validate  :show_email	
 	validate  :soc_media
