@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_221432) do
+ActiveRecord::Schema.define(version: 2018_11_01_235310) do
 
   create_table "annotation_elements", force: :cascade do |t|
     t.string "title"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_221432) do
     t.string "software"
     t.string "ref_to_work"
     t.text "how_learned_about"
+    t.boolean "received"
     t.index ["contest_nomination_id"], name: "index_contest_works_on_contest_nomination_id"
   end
 
