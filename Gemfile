@@ -35,6 +35,8 @@ gem 'active_model_serializers'
 gem 'rails_admin'
 # for routing
 gem 'devise'
+# for localization
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
