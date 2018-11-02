@@ -31,7 +31,6 @@ module ItfestApi
         origins '*'
         resource '*', headers: :any, methods: [:get, :post, :options]
       end
-
     end
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -42,18 +41,6 @@ module ItfestApi
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
-
-    # autoload all locales
-    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-
-    # default lang
-    config.i18n.default_locale = :ru
-
-    # return to en
-    config.i18n.fallbacks = [:en]
- 
-    # error language
-    config.i18n.fallbacks = {'ru' => 'en'}
     config.api_only = true
   end
 end
