@@ -5,7 +5,7 @@ class EventParticipationNote < ApplicationRecord
 	has_many   :event_participants
 
 	validates  :title, presence: true
-	validates  :how_learned_about, presence: true
+	validate   :how_learned_about
 	
 	validate   :answers
 	validate   :is_online
