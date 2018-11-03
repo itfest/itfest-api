@@ -11,5 +11,5 @@ class EventParticipationNote < ApplicationRecord
 	validate   :is_online
 
 	accepts_nested_attributes_for :coach
-	accepts_nested_attributes_for :event_participants
+	accepts_nested_attributes_for :event_participants, :limit => 6
 end
