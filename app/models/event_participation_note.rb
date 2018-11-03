@@ -1,10 +1,10 @@
 class EventParticipationNote < ApplicationRecord
 	belongs_to :event
 
-	has_one    :coach
-	has_many   :event_participants
+	has_one    :coach, :dependent => :destroy
+	has_many   :event_participants, :dependent => :destroy
 
-	validates  :title, presence: true
+	validate   :title
 	validate   :how_learned_about
 	
 	validate   :answers

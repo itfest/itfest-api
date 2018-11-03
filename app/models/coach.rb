@@ -9,7 +9,7 @@ class Coach < ApplicationRecord
 	validates :position, presence: true
 	validates :address, presence: true
 	validate  :soc_media
-	validates :email, presence: true, uniqueness: true, email: true
+	validates :email, presence: true, email: true
 	validates :phone, presence: true
 	validates :event_participation_note, presence: true
 end
