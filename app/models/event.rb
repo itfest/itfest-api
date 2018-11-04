@@ -4,7 +4,7 @@ class Event < ApplicationRecord
 	
 	validates :title, presence: true
 	validates :team_limit, presence: true, numericality: { only_integer: true }
-	validates :description, length: {in: 2..400}
+	validate  :description
 	validates :has_coach, inclusion: { in: [true, false] }
 	validates :has_question, inclusion: { in: [true, false] }
 	validates :is_online_participation_available, inclusion: { in: [true, false] }
