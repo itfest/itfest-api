@@ -7,9 +7,13 @@ class EventParticipationNotesController < ApplicationController
 	end
 
 	def create
-		unless registration_active
-			@event.event_participation_notes.create! event_part_params
-			json_response @event, :created
+		unless registration_active 
+			if @event[:is_registration_available]
+				@event.event_participation_notes.create! event_part_params
+				json_response @event, :created
+			else 
+				json_response({error:'Регистрация закрыта'}.to_json,503)
+			end
 		end
 	end
 
