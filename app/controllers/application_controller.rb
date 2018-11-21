@@ -6,6 +6,7 @@ class ApplicationController < ActionController::API
 			json_response({error:'Регистрация закрыта'}.to_json,503)
 	    end
 	end
+
 	def not_found
 		json_response({error:'Not_found'}.to_json,404)
 	end

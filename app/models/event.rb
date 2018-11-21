@@ -9,5 +9,7 @@ class Event < ApplicationRecord
 	validates :has_question, inclusion: { in: [true, false] }
 	validates :is_online_participation_available, inclusion: { in: [true, false] }
 
+	validates  :is_registration_available, inclusion: { in: [true, false] }
+
 	accepts_nested_attributes_for :question_list
 end
