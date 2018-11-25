@@ -3,7 +3,7 @@ class ContestWorkMember < ApplicationRecord
 	validates :first_name, presence: true, length: {in: 2..16}, custom_name: true
 	validates :last_name, presence: true, length: {in: 2..16}, custom_name: true 
 	validates :patronymic, presence: true, length: {in: 2..16}, custom_name: true
-	validates :university, presence: true, length: {in: 2..48}
+	validates :university, presence: true
 	validate  :speciality
 	validates :year_of_study, presence: true, numericality: { only_integer: true }
 	validates :group, presence: true
